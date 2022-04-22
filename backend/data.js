@@ -18,7 +18,7 @@ const data = {
             category: 'cuerdas',
             image: './images/piano-de-cola.jpg',
             price: 42000000,
-            countInStock: 10,
+            countInStock: 5,
             brand: 'Yamaha',
             rating: 4.5,
             numReviews: 10,
