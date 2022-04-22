@@ -1,6 +1,7 @@
 const data = {
     products: [
         {
+            _id: '1',
             name: 'Guitarra clasica',
             slug: 'guitarra-clasica',
             category: 'cuerdas',
@@ -13,6 +14,7 @@ const data = {
             description: 'guitarra clasica marca yamaha',
         },
         {
+            _id: '2',
             name: 'Piano',
             slug: 'piano-de-cola',
             category: 'cuerdas',
@@ -25,6 +27,7 @@ const data = {
             description: 'piano de cola marca yamaha',
         },
         {
+            _id: '3',
             name: 'Flauta Traversa',
             slug: 'flauta-traversa',
             category: 'viento',
@@ -37,6 +40,7 @@ const data = {
             description: 'flauta traversa marca Tom Grasso',
         },
         {
+            _id: '4',
             name: 'Bateria Acustica',
             slug: 'bateria-acustica',
             category: 'acustico',

@@ -1,22 +1,29 @@
 import express from 'express';
 import data from './data.js';
-
 const app = express();
-
+// test
+app.use(express.static('public'))
 app.get('/api/products', (req, res) => {
     res.send(data.products);
-})
+});
 app.get('/api/products/slug/:slug', (req, res) => {
-    const product = data.products.find(x => x.slug === req.params.slug);
+    const product = data.products.find((x) => x.slug === req.params.slug);
     if (product) {
-        res.send(product)
+        res.send(product);
     } else {
-        res.status(404).send({ message: 'No se ha encontrado el producto' })
+        res.status(404).send({ message: 'No se ha encontrado el producto' });
     }
-    res.send(data.products);
-})
+});
+app.get('/api/products/:id', (req, res) => {
+    const product = data.products.find((x) => x._id === req.params.id);
+    if (product) {
+        res.send(product);
+    } else {
+        res.status(404).send({ message: 'No se ha encontrado el producto' });
+    }
+});
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log('listening on port', port);
-})
+    console.log(`serve at http://localhost:${port}`);
+});
