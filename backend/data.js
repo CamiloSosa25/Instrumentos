@@ -6,7 +6,7 @@ const data = {
             category: 'cuerdas',
             image: './images/guitarra-clasica.jpg',
             price: 680000,
-            countInStock: 10,
+            countInStock: 0,
             brand: 'Yamaha',
             rating: 4,
             numReviews: 10,
@@ -39,7 +39,7 @@ const data = {
         {
             name: 'Bateria Acustica',
             slug: 'bateria-acustica',
-            category: 'viento',
+            category: 'acustico',
             image: './images/bateria-acustica.jpg',
             price: 834900,
             countInStock: 10,
