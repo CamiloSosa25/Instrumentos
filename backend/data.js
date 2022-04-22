@@ -8,7 +8,7 @@ const data = {
             price: 680000,
             countInStock: 10,
             brand: 'Yamaha',
-            rating: 4.5,
+            rating: 4,
             numReviews: 10,
             description: 'guitarra clasica marca yamaha',
         },
