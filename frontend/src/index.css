@@ -48,3 +48,8 @@ main {
   max-width: 100%;
   border: 1px #404040 solid;
 }
+
+.img-thumbnail {
+  height: 80px;
+  width: 100px;
+}

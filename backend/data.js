@@ -2,7 +2,7 @@ const data = {
     products: [
         {
             _id: '1',
-            name: 'Guitarra clasica',
+            name: 'Guitarra acustica clasica',
             slug: 'guitarra-clasica',
             category: 'cuerdas',
             image: './images/guitarra-clasica.jpg',
@@ -11,7 +11,7 @@ const data = {
             brand: 'Yamaha',
             rating: 4,
             numReviews: 10,
-            description: 'guitarra clasica marca yamaha',
+            description: 'guitarra clasica marca yamaha en cedro cuerdas nilon',
         },
         {
             _id: '2',
