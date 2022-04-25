@@ -41,8 +41,10 @@ function ProductScreen() {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const result = await axios.get(`/api/products/slug/${slug}`);
-                dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+                axios.get(`/api/products/slug/${slug}`).then((result) => {
+                    dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+                });
+
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
             }
@@ -76,7 +78,7 @@ function ProductScreen() {
                 <Col md={6}>
                     <img
                         className="img-large"
-                        src={product.image}
+                        src={'.' + product.image}
                         alt={product.name}
                     ></img>
                 </Col>
