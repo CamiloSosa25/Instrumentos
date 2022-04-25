@@ -46,7 +46,7 @@ export default function PlaceOrderScreen() {
     cart.taxPrice = round2(0.19 * cart.itemsPrice)
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice
 
-
+    /**--------------------------------------------- */
     const placeOrderHandler = async () => {
         try {
             dispatch({ type: 'CREATE_REQUEST' })
@@ -67,10 +67,36 @@ export default function PlaceOrderScreen() {
                     }
                 }
             )
+            SendEmail()
             ctxDispatch({ type: 'CART_CLEAR' })
             dispatch({ type: 'CREATE_SUCCESS' })
             localStorage.removeItem('cartItems')
             navigate(`/order/${data.order._id}`)
+        } catch (err) {
+            dispatch({ type: 'CREATE_FAIL' })
+            toast.error(getError(err))
+        }
+    }
+
+    async function SendEmail() {
+        try {
+
+            const { data } = await axios.post(
+                'https://prod-180.westus.logic.azure.com:443/workflows/d0aac5d8bff346ce8c1db0152bccb36c/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=t90rNoiL0eEMtgNX8ZwGHx0xrO2-rSf-fici1Y_sxwY',
+                {
+                    correo: userInfo.email,
+                    orderItems: cart.cartItems,
+                    shippingAddress: cart.shippingAddress,
+                    paymentMethod: cart.paymentMethod,
+                    itemsPrice: cart.itemsPrice,
+                    taxPrice: cart.taxPrice,
+                    totalPrice: cart.totalPrice,
+                    username: userInfo.name,
+                },
+
+
+            )
+
         } catch (err) {
             dispatch({ type: 'CREATE_FAIL' })
             toast.error(getError(err))
@@ -174,7 +200,7 @@ export default function PlaceOrderScreen() {
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <div className="d-grid">
-                                        <Button
+                                        <Button id="post"
                                             type="button"
                                             onClick={placeOrderHandler}
                                             disabled={cart.cartItems.length === 0}

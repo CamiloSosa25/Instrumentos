@@ -16,18 +16,33 @@ main {
 }
 
 .btn-primary {
-  background-color: #f0c040;
-  color: #000000;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+  width: 113%;
+  transform: translate(-16px, 20px);
+  padding: 15px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin-top: 5px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .products {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   justify-content: center;
+  margin: 50px 0;
 }
 
 .rating span {
   color: #ffd700;
+  font-size: 26px;
+  transition: 0.4s;
+  margin: 3px;
 }
 
 .product {
@@ -42,10 +57,13 @@ main {
 
 .product-info {
   padding: 1rem;
+  color: #000000;
 }
 
 .img-large {
   max-width: 100%;
+  width: 500px;
+  height: 600px;
   border: 1px #404040 solid;
 }
 
@@ -66,4 +84,48 @@ main {
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #f08000;
   color: #f08000;
+}
+
+a {
+  text-align: center;
+  margin: 0;
+  padding-top: 10px;
+  text-decoration: none;
+}
+
+.card {
+  width: 90%;
+  margin: 15px;
+  box-sizing: border-box;
+  float: left;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  padding-top: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  transition: 0.4s;
+  background: #f2f2f2;
+}
+
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translate(0px, -8px);
+}
+
+img {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card-text {
+  font-size: 26px;
+  text-align: center;
+  color: #222f3e;
+  margin: 0;
+}
+
+.card {
+  border: none;
 }
