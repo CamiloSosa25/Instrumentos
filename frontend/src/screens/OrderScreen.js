@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from 'react-helmet-async';
+
 import { useNavigate, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
@@ -11,6 +13,8 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
 import { getError } from '../utils';
+
+
 
 function reducer(state, action) {
     switch (action.type) {
@@ -26,6 +30,7 @@ function reducer(state, action) {
 }
 
 export default function OrderScreen() {
+
     const { state } = useContext(Store)
     const { userInfo } = state
     const params = useParams()
@@ -37,6 +42,7 @@ export default function OrderScreen() {
         order: {},
         error: ''
     })
+
 
     useEffect(() => {
         const fetchOrder = async () => {
@@ -160,13 +166,21 @@ export default function OrderScreen() {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>
-                                            <strong>Precio to</strong>
+                                            <strong>Precio total</strong>
                                         </Col>
                                         <Col>
                                             <strong>${order.totalPrice.toFixed(2)}</strong>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
+
+                                <ListGroup.Item>
+                                    <div>
+                                        <Button variant="primary"
+                                        >Pagar</Button>
+                                    </div>
+                                </ListGroup.Item>
+
                             </ListGroup>
                         </Card.Body>
                     </Card>
