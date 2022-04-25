@@ -1,5 +1,4 @@
 import express from 'express';
-
 import expressAsyncHandler from 'express-async-handler';
 import Order from '../models/orderModel.js';
 import { isAuth } from '../utils.js';
@@ -23,5 +22,19 @@ orderRouter.post(
         res.status(201).send({ message: 'Se ha creado el pedido', order })
     })
 )
+
+
+orderRouter.get(
+    '/:id', isAuth, expressAsyncHandler(async (req, res) => {
+        const order = await Order.findById(req.params.id)
+        if (order) {
+            res.send(order)
+        } else {
+            res.status(404).send({ message: 'No se ha encontrado el pedido' })
+        }
+    })
+)
+
+
 
 export default orderRouter;

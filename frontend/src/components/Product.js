@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Rating from "./Rating";

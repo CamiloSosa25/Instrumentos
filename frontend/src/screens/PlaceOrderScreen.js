@@ -57,7 +57,7 @@ export default function PlaceOrderScreen() {
                     orderItems: cart.cartItems,
                     shippingAddress: cart.shippingAddress,
                     paymentMethod: cart.paymentMethod,
-                    itemsPrice: cart.shippingPrice,
+                    itemsPrice: cart.itemsPrice,
                     taxPrice: cart.taxPrice,
                     totalPrice: cart.totalPrice
                 },
